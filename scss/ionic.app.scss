@@ -1,0 +1,168 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+@import "landing";
+@import "vod";
+@import "sidenav";
+@import "category";
+@import "search";
+
+@mixin gradientDiagonal {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#243b5d+0,7da7b3+100 */
+background: rgb(36,59,93); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(36,59,93,1) 0%, rgba(125,167,179,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  rgba(36,59,93,1) 0%,rgba(125,167,179,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  rgba(36,59,93,1) 0%,rgba(125,167,179,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#243b5d', endColorstr='#7da7b3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+@mixin backgroundSolid {
+  background: #271e2f;
+}
+
+@mixin pinkGradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4ebdc9+0,5a7a87+100&1+0,0.35+0,0.35+100 */
+  background-image: -moz-radial-gradient(center, ellipse cover,  rgba(78,189,201,0.35) 0%, rgba(90,122,135,0.35) 100%); /* FF3.6-15 */
+  background-image: -webkit-radial-gradient(center, ellipse cover,  rgba(78,189,201,0.35) 0%,rgba(90,122,135,0.35) 100%); /* Chrome10-25,Safari5.1-6 */
+  background-image: radial-gradient(ellipse at center,  rgba(78,189,201,0.35) 0%,rgba(90,122,135,0.35) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#594ebdc9', endColorstr='#595a7a87',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.pane, .view {
+  @include gradientDiagonal;
+}
+.ionic-body {
+  width: 100%;
+  height: 100%;
+}
+.bar.bar-stable {
+  background-color: transparent !important;
+  color: white;
+  height: 50px;
+}
+.has-header {
+  top: 50px;
+}
+.bar .title {
+  height: 50px;
+  line-height: 50px;
+  color: white !important;
+  background-image: none !important;
+}
+.bar {
+  background-image: none !important;
+}
+.bar.bar-stable {
+  border-bottom: 0px !important;
+  border-color: rgba(255,255,255,0.2) !important;
+}
+.bar-stable .button {
+  color: white;
+}
+md-card {
+  background-color: transparent;
+}
+[nav-view-transition="ios"][nav-view-direction="forward"], [nav-view-transition="ios"][nav-view-direction="back"] {
+  background-color: transparent;
+}
+
+.ionic-body {
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: start center;
+}
+.menu {
+}
+.bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before, .bar button.button-icon .icon:before, .bar button.button-icon:before, .bar button.button-icon.icon-left:before, .bar button.button-icon.icon-right:before {
+  font-size: 24px !important;
+  font-weight: lighter;
+  color: white;
+    &:hover {
+      color: rgba(255,255,255,0.5);
+    }
+}
+
+.header-input {
+  max-width:70%;
+  margin: auto;
+}
+.blurView {
+  -webkit-filter: blur(10px);
+}
+md-sidenav.md-default-theme, md-sidenav, md-sidenav.md-default-theme md-content, md-sidenav md-content {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#284061+0,203c60+100&0.94+0,0.95+100 */
+  background: -moz-linear-gradient(top,  rgba(40,64,97,0.94) 0%, rgba(32,60,96,0.95) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(40,64,97,0.94) 0%,rgba(32,60,96,0.95) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(40,64,97,0.94) 0%,rgba(32,60,96,0.95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0284061', endColorstr='#f2203c60',GradientType=0 ); /* IE6-9 */
+
+}
+md-sidenav-left {
+  min-width:60% !important;
+  width:60% !important;
+}
+@media screen and (max-width: 600px) {
+  md-sidenav {
+    width: calc(90% - 56px) !important;
+    min-width: calc(90% - 56px) !important;
+    max-width: calc(100% - 56px);
+  }
+}
+.title-bold {
+  font-weight: bold;
+}
+.large {
+  font-size: 16px;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.white {
+  color: white;
+}
+.spinner svg {
+  width: 28px;
+  height: 28px;
+  stroke: #fff;
+  fill: #fff;
+}
+.loading-container .loading {
+  background-color: transparent;
+}
+md-backdrop.md-opaque.md-default-theme, md-backdrop.md-opaque {
+  background-color: rgb(32, 65, 113);
+}
+.channel-card-container {
+  width:90px;
+  height:90px;
+  border-radius: 4px;
+  background-color: #fff;
+  background-size: 80% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  position:relative;
+  float:left;
+}

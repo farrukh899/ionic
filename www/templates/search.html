@@ -1,0 +1,41 @@
+<ion-nav-view title="Search" id="page1" class="search">
+    <ion-content padding="true" class="has-header" ng-cloak delegate-handle="homeScroll" on-scroll="loadMore(vm.search)">
+      <div layout="row" flex="100" layout-fill layout-wrap layout-align="center start">
+        <!-- the search container -->
+        <div flex="100" layout="row" layout-align="center center">
+          <div flex="90">
+            <form ng-submit="vm.searchContent()">
+              <div class="input-container">
+                <input type="search" ng-model="vm.search"
+                ng-change="vm.quickSearch()"
+                placeholder="Search" class="vod-search"
+                ><span ng-if="vm.search.length > 1"  class="icon ion-close text-feild-close" ng-click="vm.search=''"></span></input>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- the search container -->
+        <!-- the search content container -->
+        <div flex="100" layout-fill>
+          <!-- in case results are fetched -->
+          <div flex="100" layout-wrap layout="row" layout-fill layout-padding>
+            <div flex="50" flex-gt-sm="20" flex-gt-xs="33" layout="row" layout-align="center start" ng-repeat="feed in searchResults track by $index" layout-wrap ng-click="vm.showTitle(feed)">
+              <div class="search-card" ng-style="{'background-image': 'url('+ feed.thumbnail +')'}">
+              </div>
+              <div flex="100" class="search-card-title" ng-bind-html="feed.title"></div>
+            </div>
+          </div>
+          <!-- in case results are fetched -->
+          <!-- in case there are no search results -->
+          <div layout="row" flex="100" layout-align="center center" style="height:30px">
+            <ion-spinner icon="ripple" ng-if="isLoading"></ion-spinner>
+          </div>
+          <div flex="100" layout="row" layout layout-align="center center" class="search-error" ng-if="!searchResults">
+            No search results
+          </div>
+
+        </div>
+        <!-- the search content container -->
+      </div>
+    </ion-content>
+</ion-nav-view>

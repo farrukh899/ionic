@@ -1,0 +1,35 @@
+<ion-view class="movie-modal md-whiteframe-4dp">
+  <ion-content>
+    <div layout="row" flex="100" layout-align="end center" class="close-row">
+      <div class="cross" ng-click="closeModal()" layout-padding>
+        <i class="icon ion-ios-close"></i>
+      </div>
+    </div>
+    <jwplayer setup="options" ng-if="options"></jwplayer>
+    <!-- Show the content here -->
+    <div layout="row" flex="100" layout-wrap layout-padding>
+      <div flex="100" class="movie-content">
+        <span class="feed-title">{{feedSelected.title}}</span>
+      </div>
+        <div ng-repeat="tag in feedSelected.categories track by $index" class="tag" ng-if="tag.title">
+          {{tag.title}}
+        </div>
+      <div flex="100" class="feed-title">Description</div>
+      <div flex="100" class="field-description" ng-bind-html="feedSelected.content">
+      </div>
+    </div>
+    <span class="feed-title" layout-padding>Related movies</span>
+    <!-- show related movies here -->
+    <ion-scroll zooming="true" direction="x"  style="height: 120px" ng-if="relatedMovies">
+      <div style="width: 2000px; height: 120px;">
+        <div layout="row" flex="100">
+          <div layout="row" ng-repeat="feed in relatedMovies" layout-wrap ng-click="vm.openStream(feed)">
+            <md-card class="videos-recommended">
+              <div class="card-poster" ng-style="{'background-image': 'url('+ feed.thumbnail +')'}"></div>
+            </md-card>
+          </div>
+        </div>
+      </div>
+   </ion-scroll>
+  </ion-content>
+</ion-view>

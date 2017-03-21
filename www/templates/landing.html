@@ -1,0 +1,44 @@
+<ion-nav-view title="Page" id="page1" class="landing">
+    <ion-content padding="true" class="has-header" ng-cloak>
+      <!-- diplay the featured movies over here -->
+      <div layout="row" flex="100" layout-padding layout-wrap>
+          <div flex="100" layout-padding>
+            <span class="title-bold large uppercase white">Featured Movies</span>
+          </div>
+          <!-- scrollable-featured-movies -->
+            <ion-scroll zooming="true" direction="x"  style="height: 220px">
+              <div class="horizontal-scroll-section">
+                <div layout="row" flex="100">
+                  <div layout="row" flex="60" ng-repeat="feed in vm.featuredMovies" layout-wrap ng-click="vm.openStream(feed)">
+                    <md-card class="videos" flex="100">
+                      <div class="card-poster" ng-style="{'background-image': 'url('+ feed.thumbnail +')'}"></div>
+                    </md-card>
+                    <span class="featured-title" ng-bind-html="feed.shortTitle" flex="100"></span>
+                    <span class="featured-title tag">{{feed.tags[0].title}}</span>
+                  </div>
+                </div>
+              </div>
+           </ion-scroll>
+       <!-- scrollable-featured-movies-->
+       <!-- scrollable live channels -->
+       <div class="vertical-scroll-section">
+         <div flex="100" layout-padding>
+           <span class="title-bold large uppercase white">Live channels</span>
+         </div>
+         <ion-scroll zooming="false" direction="y" class="channels-holder" style="height: 100%">
+           <div>
+             <div layout="row" flex="100" layout-wrap>
+               <div layout="row" flex="33" ng-repeat="feed in vm.liveChannels" layout-wrap ng-click="vm.openLiveStream(feed)" flex-gt-xs="20" layout-align="center start">
+                 <md-card class="channels" flex="100" style="max-height:100px;">
+                   <div class="card-poster" ng-style="{'background-image': 'url('+ feed.thumbnail +')'}"></div>
+                 </md-card>
+                 <span class="channel-title" ng-bind-html="feed.shortTitle" flex="100"></span>
+               </div>
+             </div>
+           </div>
+        </ion-scroll>
+      </div>
+       <!-- scrollable live channels -->
+      </div>
+    </ion-content>
+</ion-nav-view>

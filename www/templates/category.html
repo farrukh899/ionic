@@ -1,0 +1,52 @@
+<ion-nav-view title="Category" id="Category" class="category">
+    <ion-content padding="true" class="has-header" ng-cloak>
+        <div layout="row" flex="100" layout-padding layout-wrap>
+          <!-- horizontaol div screen starts here -->
+          <div class="category-latest-content" layout="row" layout-wrap flex="100">
+            <div flex="100" layout-padding>
+              <span class="title-bold large uppercase white">Latest {{vm.title}}</span>
+            </div>
+            <!-- scrollable-featured-movies -->
+            <ion-scroll zooming="true" direction="x"  style="height: 200px">
+              <div style="width: 2000px; height: 200px;">
+                <div layout="row" flex="100">
+                  <div layout="row" flex="60" ng-repeat="feed in vm.latestContent" layout-wrap ng-click="vm.openStream(feed)">
+                    <md-card class="videos" flex="100">
+                      <div class="card-poster" ng-style="{'background-image': 'url('+ feed.thumbnail +')'}"></div>
+                    </md-card>
+                    <span class="featured-title" ng-bind-html="feed.shortTitle" flex="100"></span>
+                    <span class="featured-title tag" ng-if="feed.tags.length > 0">{{feed.tags[0].title}}</span>
+                  </div>
+                </div>
+              </div>
+           </ion-scroll>
+         </div>
+         <!-- ending the horizontal screen div here -->
+         <!-- div for vertical scroll starts here -->
+         <div class="category-content-scroll">
+           <div flex="100" layout-padding>
+             <span class="title-bold large uppercase white">{{vm.title}}</span>
+           </div>
+           <ion-scroll zooming="false"
+              direction="y" style="height: 100%;"
+              delegate-handle="homeScroll" on-scroll="vm.loadMore(this)"
+              class="scroll">
+             <div>
+               <div layout="row" flex="100" layout-wrap>
+                 <div layout="row" flex-xs="50" flex-gt-xs="33" ng-repeat="feed in feeds" layout-wrap ng-click="vm.openStream(feed)">
+                   <md-card class="feed-list" flex="100">
+                     <div class="card-poster" ng-style="{'background-image': 'url('+ feed.thumbnail +')'}"></div>
+                   </md-card>
+                   <span layout-padding class="feed-cat-title" ng-bind-html="feed.shortTitle" flex="100"></span>
+                 </div>
+               </div>
+               <div layout="row" flex="100" layout-align="center center" style="height:30px">
+                 <ion-spinner icon="ripple" ng-if="isLoading"></ion-spinner>
+               </div>
+             </div>
+          </ion-scroll>
+        </div>
+        <!-- div for vertical scroll ends here -->
+       </div>
+    </ion-content>
+</ion-nav-view>

@@ -1,0 +1,42 @@
+.videos {
+  .card-poster {
+    min-width:110px;
+    height: 180px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .description-area {
+    height:100px;
+    background-color: rgba(27, 55, 79, 0.66);
+
+    .feed-title {
+      color: white;
+
+    }
+  }
+  .movie-info {
+    padding: 0px 5px;
+
+    .movie-title {
+      font-size: 0.8em;
+      font-weight: bold;
+    }
+    .movie-tag {
+      font-size: 0.75em;
+      color: #d6d6d6;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .vertical-seperator {
+      font-size:0.6em;
+      color: #d6d6d6;
+      margin: 0px 5px;
+      font-weight: bold;
+    }
+    .movie-description {
+      font-size: 0.8em;
+
+    }
+  }
+}

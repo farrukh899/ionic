@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="lib/angular-material/angular-material.min.css" rel="stylesheet">
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/jwplayer.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="lib/videogular/videogular.min.js"></script>
+    <script src="lib/videogular-controls/vg-controls.js"></script>
+    <script src="lib/videogular-poster/vg-poster.js"></script>
+    <script src="lib/videogular-buffering/vg-buffering.js"></script>
+    <script src="lib/videogular-dash/vg-dash.min.js"></script>
+    <script src="lib/lodash/dist/lodash.min.js"></script>
+    <script src="lib/angular-aria/angular-aria.min.js"></script>
+    <script src="lib/angular-material/angular-material.min.js"></script>
+    <script src="lib/angular-jw/angular-jwplayer.js"></script>
+    <script src="lib/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
+    <script>jwplayer.key="rZl1jG1V8xpTdXpwHwEkvMmMhRAwP34ENczJ1Q=="</script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/controllers/landing.js"></script>
+    <script src="js/controllers/vod.js"></script>
+    <script src="js/controllers/vodPlayer.js"></script>
+    <script src="js/controllers/main.js"></script>
+    <script src="js/controllers/search.js"></script>
+    <script src="js/controllers/category.js"></script>
+    <script src="js/directives/jwplayer.directive.js"></script>
+    <script src="js/directives/sidenav.js"></script>
+    <script src="js/directives/infinite-scroll.js"></script>
+    <script src="js/services/vodService.js"></script>
+    <script src="js/services/dialog.service.js"></script>
+  </head>
+  <body ng-app="starter" ng-controller="MainCtrl">
+  <div class="ionic-body" ng-cloak>
+            <ion-nav-bar class="bar-stable">
+              <ion-nav-buttons side="left">
+ <!-- Toggle left side menu -->
+               <button menu-toggle="left"
+                       class="button button-icon icon ion-navicon"
+                       ng-click="toggleLeftSideMenu()"
+                       menu-toggle= "left">
+               </button>
+              </ion-nav-buttons>
+              <ion-nav-title>
+                  <span>JOY</span>
+              </ion-nav-title>
+              <ion-nav-buttons side="right">
+                <a data-tap-disabled="true" class="small-button button button-icon icon positive"
+                ng-init="hasFilters = false" ng-click="search()"
+                ng-class="{'ion-search':!searchOpen,'ion-close-circled':searchOpen}">
+              </a>
+              </ion-nav-buttons>
+            </ion-nav-bar>
+            <!-- the sidenav -->
+            <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" flex="50">
+              <md-content class="sidenav-content">
+                <div class="content-top" layout="row" layout-align="start center ">
+                  <div flex="60" layout="row" layout-allign="center center" ng-click="goHome()">
+                    <div class="menu-home-pip icon ion-ios-home"></div>
+                    <div flex="50" class="home-title" layout="row" layout-padding layout-align="start center">Home</div>
+                  </div>
+                </div>
+                <div layout="row" flex="100" layout-align="start center" layout-wrap>
+                  <!-- the first menu -->
+                  <div flex="100" class="sidenav-vod">
+                    <!-- the first menu -->
+                    <div class="category-wrapper">
+                      <ion-scroll zooming="false" direction="y" style="height: 93%">
+                        <div style="height: 95%;">
+                          <div layout="row" flex="100" ng-click="selectCat(category.id, category.title)" ng-repeat="category in categoryList" layout="row">
+                            <span flex="100" class="category-item">{{category.title}}</span>
+                            <div flex="20" layout="row" layout-align="end center" class="count-pip">
+                                <div flex="80">{{category.post_count}}</div>
+                                <div flex="20" layout="row" layout-align="end center">
+                                  <span class="icon ion-ios-arrow-right"></span>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                     </ion-scroll>
+                   </div>
+                   <!-- the seconf menu for live channels -->
+                   <div class="channel-wrapper" layout="row" layout-align="center center" layout-wrap>
+                     <span flex="100" class="sidebar-title" style="height: 10%;">Live channels</span>
+                     <ion-scroll direction="x">
+                       <div layout-padding style="width:5200px">
+                         <md-card layout="row" ng-repeat="channel in liveChannels" class="channel-card-container"
+                                  ng-style="{'background-image': 'url('+ channel.thumbnail +')'}" ng-click="openLive(channel)">
+                         </md-card>
+                       </div>
+                     </ion-scroll>
+                   </div>
+                  </div>
+                  <!-- the second menu -->
+                </div>
+              </md-content>
+            </md-sidenav>
+            <!-- the sidenav move it when necessary-->
+        <ion-nav-view class="ionic-body" ng-if="!loading" ng-controller="MainCtrl">
+        </ion-nav-view>
+    </div>
+  </body>
+</html>

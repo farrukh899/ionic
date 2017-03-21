@@ -1,0 +1,20 @@
+<ion-view title="Movies List" id="vod" class="videos" name="videoOnDemand">
+    <ion-content padding="false" class="has-header">
+      <!-- change the style of this card -->
+      <div class="videoCard" layout="row" layout-wrap flex="100">
+        <div flex="50" ng-repeat="feed in vm.vodFeed" ng-click="vm.showMovie(feed)">
+          <!-- an induvidual card -->
+          <md-card class="videos">
+            <div class="card-poster" ng-style="{'background-image': 'url('+ feed.thumbnail +')'}"></div>
+            <!-- the description section of the movie -->
+            <div class="description-area" layout="row" flex="100" layout-padding>
+              <div flex="100">
+                <span class="feed-title" ng-bind-html="feed.shortTitle"></span>
+              </div>
+            </div>
+          </md-card>
+        </div>
+      </div>
+      <!-- change the style of this card -->
+    </ion-content>
+</ion-view>

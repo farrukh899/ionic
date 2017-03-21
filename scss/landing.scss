@@ -1,0 +1,227 @@
+@mixin blueBackground {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#02a6e7+0,02a6e7+100&0.75+0,1+51 */
+background: -moz-linear-gradient(top,  rgba(2,166,231,0.75) 0%, rgba(2,166,231,1) 51%, rgba(2,166,231,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(2,166,231,0.75) 0%,rgba(2,166,231,1) 51%,rgba(2,166,231,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(2,166,231,0.75) 0%,rgba(2,166,231,1) 51%,rgba(2,166,231,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf02a6e7', endColorstr='#02a6e7',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin orangeBackground {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c74721+0,c74721+100&0.75+0,1+51 */
+background: -moz-linear-gradient(top,  rgba(199,71,33,0.75) 0%, rgba(199,71,33,1) 51%, rgba(199,71,33,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(199,71,33,0.75) 0%,rgba(199,71,33,1) 51%,rgba(199,71,33,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(199,71,33,0.75) 0%,rgba(199,71,33,1) 51%,rgba(199,71,33,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfc74721', endColorstr='#c74721',GradientType=0 ); /* IE6-9 */
+
+}
+.full-height{
+  @include blueBackground;
+  height: 100%;
+  min-height: 380px;
+  border-radius: 8px;
+  padding-top: 0px;
+}
+.slider-pager {
+  bottom : 1px;
+}
+.slider-pager .slider-pager-page {
+  color: #b5b5b5;
+}
+.background-placeholder {
+  width:100%;
+  height: 370px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.live-background {
+  background-image: url('/img/live.jpg');
+}
+.vod-background {
+  background-image: url('/img/movie.jpg');
+}
+.blue-gradient {
+  @include blueBackground;
+  height: 380px;
+  width:100%;
+  display:block;
+  position: absolute;
+  border-radius:8px;
+  top:20px;
+  display: table-cell;
+  vertical-align: bottom;
+}
+.orange-gradient {
+  @include orangeBackground;
+  height: 380px;
+  width:100%;
+  display:block;
+  position: absolute;
+  border-radius:8px;
+  top:20px;
+  display: table;
+  vertical-align: bottom;
+}
+
+.type-text {
+  height: 200px;
+  width:100%;
+  position:relative;
+  background-color: transparent;
+  bottom:0;
+  position: absolute;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.landing {
+  .scroll-view.scroll-x
+  {
+    overflow-x:hidden !important;
+  }
+  .scroll-view.scroll-y {
+    overflow-y: hidden !important;
+  }
+  // The video display css styling
+  .videos {
+    width:220px;
+    .card-poster {
+      height: 140px;
+      border-radius: 4px;
+    }
+  }
+  .featured-title {
+    color: white;
+    font-weight: bold;
+    padding: 0px 8px;
+    text-overflow: clip;
+  }
+  .channel-title {
+    max-width:85px !important;
+    color: white;
+    font-weight: bold;
+    padding: 0px 8px;
+    text-overflow: clip;
+    font-size: 10px;
+  }
+  .tag {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+  .channels-holder {
+    padding-bottom:20px;
+  }
+  .channels {
+    background-color: #fff;
+    height: 85px;
+    width: 85px;
+    max-width:85px !important;
+    max-height:85px !important;
+    .card-poster {
+      padding-bottom:100%;
+      border-radius: 4px;
+      background-size: 80%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+.movie-modal {
+  height: 95%;
+  width: 95%;
+  left:2.5%;
+  top: 2.5%;
+  background-color: rgba(51, 70, 95, 0.97) !important;
+  border-radius: 8px;
+  .movie-pane {
+    min-height:100px;
+  }
+  .tag {
+    margin-right:4px;
+    margin-left:0px;
+  }
+  .field-description {
+    color: white;
+    font-size: 12px;
+  }
+  .button-close {
+    width:30px;
+    height:30px;
+    background-color: #000000;
+    border-radius:50px;
+  }
+  .cross {
+    top: 4px;
+    color: white !important;
+    text-shadow: 0px 1px 4px #000000;
+    font-size: 26px !important;
+        height: 40px;
+        width: 40px;
+        display: block;
+        z-index: 10000;
+        position: relative;
+        margin-right: 7px;
+        margin-top: 34px;
+  }
+  // The video display css styling
+  .videos-recommended {
+    .card-poster {
+      height: 120px;
+      width:200px;
+      border-radius: 4px;
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+  .live-recommended {
+    .card-poster {
+      height: 90px;
+      width:90px;
+      border-radius: 4px;
+      background-color: #fff;
+      background-size: 90%;
+      margin:10px;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  }
+}
+.feed-title{
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+.tag {
+  padding:6px;
+  background-color: rgba(91, 124, 141, 0.32);
+  font-size: 10px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right:4px;
+  margin-left:6px;
+  border-radius: 4px;
+}
+.jw-error .jw-preview, .jw-stretch-uniform .jw-preview, .jwplayer .jw-preview {
+  background-size: cover !important;
+}
+.scroll-view.scroll-x
+{
+  overflow-x:hidden !important;
+}
+.scroll-view.scroll-y {
+  overflow-y: hidden !important;
+}
+.video-container {
+  width: 220px;
+}
+.close-row {
+  height:0px;
+  overflow:visible;
+}
+.horizontal-scroll-section {
+  height: 40vh;
+  max-height:300px;
+  width:2000px;
+}
+.vertical-scroll-section {
+  height:44vh;
+}
